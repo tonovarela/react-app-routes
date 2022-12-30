@@ -1,6 +1,5 @@
 import { lazy, LazyExoticComponent } from "react";
-import { JsxEmit } from "typescript";
-//import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
+
 
 type JSXComponent = () => JSX.Element
 interface route {
