@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { BrowserRouter, Routes, NavLink, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, NavLink, Route, Navigate, Link } from "react-router-dom"
 import logo from '../logo.svg'
 import { routes } from './routes';
 
@@ -18,14 +18,23 @@ export const Navigation = () => {
                                     </li>
                                 ))
                             }
+                            <li>
+                                <NavLink  className={({ isActive }) => isActive ? 'nav-active' : ''} to="/lazyload/lazy1" >Lazy1</NavLink>
+                            </li>
+                            <li>
+                                <NavLink  className={({ isActive }) => isActive ? 'nav-active' : ''} to="/lazyload/lazy2" >Lazy2</NavLink>
+                            </li>
+                            <li>
+                                <NavLink  className={({ isActive }) => isActive ? 'nav-active' : ''} to="/lazyload/lazy3" >Lazy3</NavLink>
+                            </li>
                         </ul>
                     </nav>
                     <Routes>
                         {
                             routes.map(({ path, component: Component }) => (
                                 <Route key={path}
-                                      path={path}
-                                      element={<Component />} />
+                                    path={path}
+                                    element={<Component />} />
                             ))
                         }
                         <Route path="/*" element={<Navigate to={routes[0].to} replace></Navigate>} />
