@@ -4,6 +4,9 @@ import { ProductCard as ProductCardHOC } from './ProductCard';
 import { ProductButtons } from './ProductButton';
 import { ProductImage } from './ProductImage';
 import { ProductTitle } from './ProductTitle';
+
+
+
 export { ProductButtons } from './ProductButton';
 export { ProductImage } from './ProductImage';
 export { ProductTitle } from './ProductTitle';
