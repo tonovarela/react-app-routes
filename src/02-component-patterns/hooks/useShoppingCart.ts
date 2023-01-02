@@ -15,7 +15,6 @@ export const useShoppingCart = () => {
                 [product.id]: { ...product, count: counter }
 
             }
-
         });
     }
 

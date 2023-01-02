@@ -9,8 +9,7 @@ interface UseProductArgs {
 
 export const useProduct = ({ onChange, product, value = 0 }: UseProductArgs) => {
 
-    const [counter, setCounter] = useState(value);
-    //const isContolled = useRef(!!onChange);
+    const [counter, setCounter] = useState(value);    
     useEffect(() => {
         setCounter(value)
     }, [value]);
@@ -18,11 +17,7 @@ export const useProduct = ({ onChange, product, value = 0 }: UseProductArgs) => 
 
 
     const increaseBy = (value: number) => {
-    //     if (isContolled.current && onChange) {
-    //         onChange({ counter: value, product });
-    //         return;
-    //    }
-
+    
         const newValue = Math.max(counter + value, 0);
         setCounter(newValue);
         onChange && onChange({ counter: newValue, product });
