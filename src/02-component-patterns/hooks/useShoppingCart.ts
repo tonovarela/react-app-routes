@@ -5,24 +5,23 @@ import { Product, ProductInCart } from "../interfaces/interfaces";
 export const useShoppingCart = () => {
     const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
     const onProductCountChange = ({ counter, product }: { counter: number, product: Product }) => {
-        setShoppingCart(oldShoppingCart => {
-            const newShoppinCard = { ...oldShoppingCart };
-            const productInCart: ProductInCart = oldShoppingCart[product.id] || { ...product, count: 0 };
-            if (productInCart.count + counter > 0) {
-                productInCart.count += counter;
-                return {
-                    ...newShoppinCard,
-                    [product.id]: productInCart
-                }
+        setShoppingCart(oldShoppingCart => {        
+            if (counter == 0) {
+                const { [product.id]: toDelete, ...rest } = oldShoppingCart;
+                return rest;
             }
-            delete newShoppinCard[product.id];
-            return { ...newShoppinCard }
-            
+            return {
+                ...oldShoppingCart,
+                [product.id]: { ...product, count: counter }
+
+            }
+
         });
     }
 
 
     return {
+
         shoppingCart,
 
 
