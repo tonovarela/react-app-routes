@@ -6,7 +6,7 @@ export const useShoppingCart = () => {
     const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
     const onProductCountChange = ({ counter, product }: { counter: number, product: Product }) => {
         setShoppingCart(oldShoppingCart => {        
-            if (counter == 0) {
+            if (counter === 0) {
                 const { [product.id]: toDelete, ...rest } = oldShoppingCart;
                 return rest;
             }
@@ -17,13 +17,8 @@ export const useShoppingCart = () => {
             }
         });
     }
-
-
     return {
-
         shoppingCart,
-
-
         onProductCountChange,
 
     }
