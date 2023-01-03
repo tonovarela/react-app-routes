@@ -16,21 +16,32 @@ export const useProduct = ({ onChange, product, value = 0,initialValues }: UsePr
         //setCounter(value)
     }, [value]);
 
-    const increaseBy = (value: number) => {    
-        let newValue = Math.max(counter + value, 0);
-        
+    const increaseBy = (value: number) => {            
+        let newValue = Math.max(counter + value, 0);        
         if (initialValues?.maxCount ){            
             newValue = Math.min(newValue,initialValues.maxCount)            
         }
         setCounter(newValue);
         onChange && onChange({ counter: newValue, product });
+    }
 
+    const isMaxReached =()=>{
+        const  maxCount = initialValues?.maxCount
+        return !!maxCount && maxCount === counter;
+    }
+
+    const reset =()=>{
+        setCounter(initialValues?.count || value);        
     }
 
 
 
     return {
         counter,
-        increaseBy
+
+        increaseBy,        
+        isMaxReached,
+        reset
+
     }
 }
