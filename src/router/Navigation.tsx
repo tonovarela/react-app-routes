@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, NavLink ,Route, Navigate} from "react-router-dom"
+import { RegisterPage } from "../03-forms/pages/RegisterPage"
 import logo from '../logo.svg'
 
 export const Navigation = () => {
@@ -9,7 +10,7 @@ export const Navigation = () => {
                     <img src={logo} alt="React logo"></img>
                     <ul>
                     <li>
-                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/">Home</NavLink>
+                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/register">Register page</NavLink>
                     </li>
                     <li>
                         <NavLink className={({isActive})=>isActive?'nav-active':''} to="/about">About</NavLink>
@@ -22,8 +23,8 @@ export const Navigation = () => {
                 <Routes>
                     <Route path="/about"  element={<h1>About Page</h1>} />
                     <Route path="/users" element={<h1>Users</h1>} />
-                    <Route path="/home" element={<h1>Home</h1>} />
-                    <Route path="/*" element={<Navigate to="home" replace></Navigate>} />
+                    <Route path="/register" element={<RegisterPage></RegisterPage>} />
+                    <Route path="/*" element={<Navigate to="register" replace></Navigate>} />
                 </Routes>                
             </div>
 
