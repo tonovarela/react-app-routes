@@ -1,6 +1,12 @@
+
 import { BrowserRouter, Routes, NavLink ,Route, Navigate} from "react-router-dom"
-import { RegisterPage } from "../03-forms/pages/RegisterPage"
+import { FormikYupePage,FormikPage,RegisterPage } from "../03-forms/pages"
+import { FormikComponents } from "../03-forms/pages/FormykComponents"
+
 import logo from '../logo.svg'
+
+
+
 
 export const Navigation = () => {
     return (
@@ -13,18 +19,22 @@ export const Navigation = () => {
                         <NavLink className={({isActive})=>isActive?'nav-active':''} to="/register">Register page</NavLink>
                     </li>
                     <li>
-                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/about">About</NavLink>
+                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/formik">Formik  basic</NavLink>
                     </li>
                     <li>
-                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/users">Users</NavLink>
+                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/yup">Formik UP </NavLink>
+                    </li>
+                    <li>
+                        <NavLink className={({isActive})=>isActive?'nav-active':''} to="/formikcomponent">Formik Components </NavLink>
                     </li>
                 </ul>
                 </nav>
                 <Routes>
-                    <Route path="/about"  element={<h1>About Page</h1>} />
-                    <Route path="/users" element={<h1>Users</h1>} />
+                    <Route path="/yup"  element={<FormikYupePage/>} />
+                    <Route path="/formik" element={<FormikPage/>} />
                     <Route path="/register" element={<RegisterPage/>} />
-                    <Route path="/*" element={<Navigate to="register" replace></Navigate>} />
+                    <Route path="/formikcomponent" element={<FormikComponents/>} />
+                    <Route path="/*" element={<Navigate to="formik" replace></Navigate>} />
                 </Routes>                
             </div>
 
