@@ -1,0 +1,65 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "Varela",
+        "label": "Firs Name",
+        "value": "Jonh",
+        "validations": [
+            {
+                "type":"required"
+            },            
+            {
+                "type":"minLength",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "",
+        "label": "Last Name",
+        "value": "Apellido",
+        "validations": [
+            {
+                "type":"required"
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "",
+        "label": "Email",
+        "value": "tonovarela@live.com",
+        "validations": [
+            {
+                "type":"required"
+            },
+            {
+                "type":"email"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Favorite Game",
+        "value": "0",        
+        "options": [
+            {
+                "id": 1,
+                "label": "FIFA"
+            },
+            {
+                "id": 2,
+                "label": "Resident Evil"
+            },
+            {
+                "id": 3,
+                "label": "Super Mario"
+            }
+        ]
+    }
+]
